@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: static/img
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+  sanitize_replacement: '_'
+collections:
+  - label: 'Blog'
+    name: 'blog'
+    folder: 'content/blogPosts'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - {
+          label: 'Publish Date',
+          name: 'date',
+          widget: 'datetime',
+          required: true,
+        }
+       - { label: 'Desctiption', name: 'desc', widget: 'string', required: true }
