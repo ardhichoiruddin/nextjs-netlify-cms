@@ -18,6 +18,7 @@ const importBlogPosts = () => {
 };
 
 export default function Home({postsList}) {
+  console.log(postsList)
   const { attributes: {title} } = arttributes
   return (
     <div>
