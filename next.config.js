@@ -6,5 +6,6 @@ module.exports = {
       })
       return configuration
     },
+    target: 'serverless'
   }
   
