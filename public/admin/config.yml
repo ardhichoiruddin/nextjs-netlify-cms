@@ -20,4 +20,4 @@ collections:
           widget: 'datetime',
           required: true,
         }
-       - { label: 'Desctiption', name: 'desc', widget: 'string', required: true }
+      - { label: 'Desctiption', name: 'desc', widget: 'string', required: true }
