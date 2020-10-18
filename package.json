@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next build"
+    "export": "next build",
+    "postbuild": "next-on-netlify"
   },
   "dependencies": {
     "next": "9.5.4",
@@ -18,6 +19,6 @@
   "devDependencies": {
     "frontmatter-markdown-loader": "^3.6.1"
 
-    
+
   }
 }
