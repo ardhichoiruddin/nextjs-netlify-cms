@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import useSWR from 'swr'
 
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
@@ -24,36 +25,18 @@ const importBlogPosts = () => {
 
 export default function Home({postsList}) {
 
-  const [data, setData] = useState(null)
-
-  const fetchData = async() => {
-    const res = await fetch(url)
-    const posts = await res.json()
-    setData(posts)
-  }
-
-  useEffect(() => {
-    fetchData()
-  }, [])
+  const { data } = useSWR('/api/getData')
+  console.log(data)
   
   const { attributes: {title} } = arttributes
   return (
     <div>
       <h1>{title}</h1>
-
       <div>
-        <ul>
-          {data && data.map((item, index) => {
-            
-            return(
-              <li key={index} style={{ padding: '1rem' }}>
-                <Link href="/detail/[slug]" as={`/detail/${item.id}`}>
-                  <a >{item.title}</a>
-                </Link>
-              </li>
-            )
-            
-          })}
+          <ul>
+          { data && data.map((item, index) => (
+            <li key={index}>{item.title}</li>
+          )) }
         </ul>
       </div>
     </div>
